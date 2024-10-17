@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+
+{% include 'Sidebar.html' %}
+
+            <section class="p-3">
+                <div class="container">
+                    <h2>Lista de Menú Roles</h2>
+                    <button class="btn btn-light mb-3" id="btnAddMenuRol">Agregar Menú Rol</button>
+
+                    <!-- Formulario para agregar/editar menú rol -->
+                    <div id="formContainer" class="d-none mb-4">
+                        <form id="MenuRolForm">
+                            <input type="hidden" id="MenuRolId" value="">
+                            <div class="form-group">
+                                <label for="PersonalRolId">ID Personal Rol</label>
+                                <!-- Select para Personal Rol -->
+                                <select id="PersonalRolId" class="form-control" required></select>
+                            </div>
+                            <div class="form-group">
+                                <label for="MenuId">ID Menú</label>
+                                <!-- Select para Menú -->
+                                <select id="MenuId" class="form-control" required></select>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Guardar</button>
+                            <button type="button" class="btn btn-secondary ml-2" id="btnCancel">Cancelar</button>
+                        </form>
+                    </div>
+
+                    <!-- Tabla para mostrar los menús roles -->
+                    <table class="table table-dark table-bordered d-none" id="menuRolTable">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Personal Rol</th>
+                                <th>Menú</th>
+                                <th>Fecha Modificacion</th>
+                                <th>Estatus</th>
+                                <th>Personal Modifica</th>
+                                <th>Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody id="menuRolTableBody"></tbody>
+                    </table>
+
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="{{ url_for('static', filename='js/menurole.js') }}"></script>
+
+</body>
+
+</html>

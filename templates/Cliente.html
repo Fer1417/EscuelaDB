@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+
+{% include 'Sidebar.html' %}
+
+            <section class="p-3">
+                <div class="container">
+                    <h2>Lista de Clientes</h2>
+                    <button class="btn btn-light mb-3" id="btnAddCliente">Agregar Cliente</button>
+
+                    <!-- Formulario para agregar/editar cliente -->
+                    <div id="formContainer" class="d-none mb-4">
+                        <form id="ClienteForm">
+                            <input type="hidden" id="ClienteId" value="">
+                            <div class="form-group">
+                                <label for="ClienteNombre">Nombre</label>
+                                <input type="text" id="ClienteNombre" class="form-control" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="ClientePrimerApellido">Primer Apellido</label>
+                                <input type="text" id="ClientePrimerApellido" class="form-control" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="ClienteSegundoApellido">Segundo Apellido</label>
+                                <input type="text" id="ClienteSegundoApellido" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <label for="AlumnoId">ID Alumno</label>
+                                <!-- Select para Alumno -->
+                                <select id="AlumnoId" class="form-control" required></select>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Guardar</button>
+                            <button type="button" class="btn btn-secondary ml-2" id="btnCancel">Cancelar</button>
+                        </form>
+                    </div>
+
+                    <table class="table table-dark table-bordered d-none" id="clienteTable">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Nombre</th>
+                                <th>Primer Apellido</th>
+                                <th>Segundo Apellido</th>
+                                <th>ID Alumno</th>
+                                <th>Fecha Modificacion</th>
+                                <th>Estatus</th>
+                                <th>Personal Modifica</th>
+                                <th>Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody id="clienteTableBody"></tbody>
+                    </table>
+
+                </div>
+            </section>
+        </div>
+    </div>
+
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script src="{{ url_for('static', filename='js/cliente.js') }}"></script>
+</body>
+</html>

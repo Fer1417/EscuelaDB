@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+
+{% include 'Sidebar.html' %}
+
+            <section class="p-3">
+                <div class="container">
+                    <h2>Lista de Menús</h2>
+                    <button class="btn btn-light mb-3" id="btnAddMenu">Agregar Menú</button>
+
+                    <div id="formContainer" class="d-none mb-4">
+                        <form id="MenuForm">
+                            <input type="hidden" id="MenuId" value="">
+                            <div class="form-group">
+                                <label for="MenuDescripcion">Descripción</label>
+                                <input type="text" class="form-control" id="MenuDescripcion" required>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Guardar</button>
+                            <button type="button" class="btn btn-secondary ml-2" id="btnCancel">Cancelar</button>
+                        </form>
+                    </div>
+
+                    <table class="table table-dark table-bordered d-none" id="menuTable">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Descripción</th>
+                                <th>Fecha Modificacion</th>
+                                <th>Estatus</th>
+                                <th>Personal Modifica</th>
+                                <th>Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody id="menuTableBody"></tbody>
+                    </table>
+
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="{{ url_for('static', filename='js/menu.js') }}"></script>
+
+</body>
+
+</html>

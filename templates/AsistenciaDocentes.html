@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="es">
+
+    {% include 'Sidebar.html' %}
+    <section class="p-3">
+        <div class="container">
+            <h2>Lista de Asistencias Docentes</h2>
+            <button class="btn btn-light mb-3" id="btnAddAsistencia">Agregar Asistencia</button>
+
+            <!-- Formulario para agregar/editar asistencia -->
+            <div id="formContainer" class="d-none mb-4">
+                <form id="AsistenciaForm">
+                    <input type="hidden" id="AsistenciaId" value="">
+                    <div class="form-group">
+                        <label for="DocenteId">Docente</label>
+                        <select id="DocenteId" class="form-control" required></select>
+                    </div>
+                    <div class="form-group">
+                        <label for="AsistenciaDetalleId">Detalle de Asistencia</label>
+                        <select id="AsistenciaDetalleId" class="form-control" required></select>
+                    </div>
+                    <div class="form-group">
+                        <label for="AsistenciaFechaHora">Fecha y Hora</label>
+                        <input type="datetime-local" id="AsistenciaFechaHora" class="form-control" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Guardar</button>
+                    <button type="button" class="btn btn-secondary ml-2" id="btnCancel">Cancelar</button>
+                </form>
+            </div>
+
+            <!-- Tabla para mostrar las asistencias -->
+            <table class="table table-dark table-bordered d-none" id="asistenciaTable">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Docente</th>
+                        <th>Fecha y Hora</th>
+                        <th>Detalle</th>
+                        <th>Fecha Modificación</th>
+                        <th>Estatus</th>
+                        <th>Personal Modifica</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody id="asistenciaTableBody"></tbody>
+            </table>
+
+        </div>
+    </section>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="{{ url_for('static', filename='js/asistenciaDocente.js') }}"></script>
+
+</body>
+</html>

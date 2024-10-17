@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/estilos.css') }}">
+    <title>Escuela</title>
+</head>
+<body>
+    <div class="container">
+        <div class="signin-signup">
+            <form id="login-form" class="sign-in-form">
+                <h2 class="title">Iniciar Sesión</h2>
+                <br>
+                <div class="input-field">
+                    <i class="fas fa-user"></i>
+                    <input type="text" id="personalId" placeholder="Identificador" required>
+                </div>
+                <div class="input-field">
+                    <i class="fas fa-lock"></i>
+                    <input type="password" id="personalContrasena" placeholder="Contraseña" required>
+                </div>
+                <input type="submit" value="Ingresar" class="btn">
+                <br>
+                <div id="error-message" style="color: red;"></div> 
+            </form>
+            <form action="" class="sign-up-form">
+            </form>
+        </div>
+        <div class="panels-container">
+            <div class="panel left-panel">
+            </div>
+            <div class="panel right-panel">
+                <div class="content">
+                    <img src="{{ url_for('static', filename='photos/logo_sin.png') }}" alt="Logo" id="logo">
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/sidebar.js') }}"></script>
+</body>
+</html>

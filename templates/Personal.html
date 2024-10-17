@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+
+            {% include 'Sidebar.html' %}
+
+            <section class="p-3">
+                <div class="container">
+                    <h2>Lista de Personal</h2>
+                    <button class="btn btn-light mb-3" id="btnAddPersonal">Agregar Personal</button>
+
+                    <!-- Formulario para agregar/editar personal -->
+                    <div id="formContainer" class="d-none mb-4">
+                        <form id="PersonalForm">
+                            <input type="hidden" id="PersonalId" value="">
+                            <div class="form-group">
+                                <label for="PersonalNombre">Nombre</label>
+                                <input type="text" id="PersonalNombre" class="form-control" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="PersonalPrimerApellido">Primer Apellido</label>
+                                <input type="text" id="PersonalPrimerApellido" class="form-control" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="PersonalSegundoApellido">Segundo Apellido</label>
+                                <input type="text" id="PersonalSegundoApellido" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <label for="PersonalContrasena">Contraseña</label>
+                                <input type="password" id="PersonalContrasena" class="form-control" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="PersonalRolId">Rol</label>
+                                <select id="PersonalRolId" class="form-control" required>
+                                    <option value="">Selecciona un rol</option> <!-- Opción por defecto -->
+                                </select>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Guardar</button>
+                            <button type="button" class="btn btn-secondary ml-2" id="btnCancel">Cancelar</button>
+                        </form>
+                    </div>
+
+                    <!-- Tabla para mostrar los registros de personal -->
+                    <table class="table table-dark table-bordered d-none" id="personalTable">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Nombre</th>
+                                <th>Primer Apellido</th>
+                                <th>Segundo Apellido</th>
+                                <th>Rol</th>
+                                <th>Fecha Modificacion</th>
+                                <th>Estatus</th>
+                                <th>Personal Modifica</th>
+                                <th>Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody id="personalTableBody"></tbody>
+                    </table>
+
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="{{ url_for('static', filename='js/personal.js') }}"></script>
+
+</body>
+
+</html>

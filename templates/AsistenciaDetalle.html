@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="es">
+
+    {% include 'Sidebar.html' %}
+    <section class="p-3">
+        <div class="container">
+            <h2>Lista de Detalles de Asistencia</h2>
+            <button class="btn btn-light mb-3" id="btnAddDetalle">Agregar Detalle</button>
+
+            <!-- Formulario para agregar/editar detalle -->
+            <div id="formContainer" class="d-none mb-4">
+                <form id="DetalleForm">
+                    <input type="hidden" id="AsistenciaDetalleId" value="">
+                    <div class="form-group">
+                        <label for="AsistenciaDetalleDescripcion">Descripción</label>
+                        <input type="text" id="AsistenciaDetalleDescripcion" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="AsistenciaDetalleComentario">Comentario</label>
+                        <textarea id="AsistenciaDetalleComentario" class="form-control"></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Guardar</button>
+                    <button type="button" class="btn btn-secondary ml-2" id="btnCancel">Cancelar</button>
+                </form>
+            </div>
+
+            <!-- Tabla para mostrar los detalles -->
+            <table class="table table-dark table-bordered d-none" id="detalleTable">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Descripción</th>
+                        <th>Comentario</th>
+                        <th>Fecha Modificación</th>
+                        <th>Estatus</th>
+                        <th>Personal Modifica</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody id="detalleTableBody"></tbody>
+            </table>
+
+        </div>
+    </section>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="{{ url_for('static', filename='js/asistenciaDetalle.js') }}"></script>
+
+</body>
+</html>

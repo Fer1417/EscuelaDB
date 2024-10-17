@@ -1,0 +1,129 @@
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://kit.fontawesome.com/4868e06636.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <title>Instituto Minerva Argani Tonel</title>
+</head>
+
+<body>
+    <div class="d-flex">
+        <div id="sidebar">
+            <div class="text-center p-2"> 
+                <img src="{{ url_for('static', filename='photos/logo.png') }}" alt="Logo" id="logo">
+            </div>
+            <a href="#" class="navbar-brand text-light w-100 p-4 border-bottom">Tablas</a>
+            <div id="sidebar-accordion" class="accordion">
+                <div id="menuList" class="list-group">
+                    {% if session.personal_id == 1001 %}
+                        <!-- Menús para PersonalId 1001 -->
+                        <div>
+                            <a href="{{ url_for('personal') }}" class="list-group-item list-group-item-action bg-dark text-light">
+                                <i class="fa-solid fa-user-tie mr-3"></i>Personal
+                            </a>
+                        </div>
+                        <div>
+                            <a href="{{ url_for('docentes') }}" class="list-group-item list-group-item-action bg-dark text-light">
+                                <i class="fa-solid fa-chalkboard-user mr-3" aria-hidden="true"></i>Docentes
+                            </a>
+                        </div>
+                        <div>
+                            <a href="{{ url_for('cliente') }}" class="list-group-item list-group-item-action bg-dark text-light">
+                                <i class="fa-solid fa-person-breastfeeding mr-3" aria-hidden="true"></i>Clientes
+                            </a>
+                        </div>
+                        <div class="list-group">
+                            <a href="{{ url_for('alumnos') }}" class="list-group-item list-group-item-action bg-dark text-light">
+                                <i class="fa fa-users mr-3" aria-hidden="true"></i>Alumnos
+                            </a>
+                        </div>
+                        <div>
+                            <a href="{{ url_for('asistenciapersonal') }}" class="list-group-item list-group-item-action bg-dark text-light">
+                                <i class="fa-solid fa-user-tie mr-3" aria-hidden="true"></i>Asistencia Personal
+                            </a>
+                        </div>
+                        <div>
+                            <a href="{{ url_for('asistenciadocentes') }}" class="list-group-item list-group-item-action bg-dark text-light">
+                                <i class="fa-solid fa-chalkboard-user mr-3" aria-hidden="true"></i>Asistencia Docentes
+                            </a>
+                        </div>
+                        <div>
+                            <a href="{{ url_for('asistenciadetalles') }}" class="list-group-item list-group-item-action bg-dark text-light">
+                                <i class="fa-solid fa-book mr-3" aria-hidden="true"></i>Asistencia Detalles
+                            </a>
+                        </div>
+                        <div>
+                            <a href="{{ url_for('personalrol') }}" class="list-group-item list-group-item-action bg-dark text-light">
+                                <i class="fa-solid fa-user-tie mr-3" aria-hidden="true"></i>Personal Roles
+                            </a>
+                        </div>
+                        <div>
+                            <a href="{{ url_for('menu') }}" class="list-group-item list-group-item-action bg-dark text-light">
+                                <i class="fa fa-list mr-3" aria-hidden="true"></i>Menús
+                            </a>
+                        </div>
+                        <div>
+                            <a href="{{ url_for('menurole') }}" class="list-group-item list-group-item-action bg-dark text-light">
+                                <i class="fa fa-link mr-3" aria-hidden="true"></i>Menús Roles
+                            </a>
+                        </div>
+
+                    {% elif session.personal_id == 1002 %}
+                        <!-- Menús para PersonalId 1002 -->
+                        <div>
+                            <a href="{{ url_for('alumnos') }}" class="list-group-item list-group-item-action bg-dark text-light">
+                                <i class="fa fa-users mr-3" aria-hidden="true"></i>Alumnos
+                            </a>
+                        </div>
+                        <div>
+                            <a href="{{ url_for('docentes') }}" class="list-group-item list-group-item-action bg-dark text-light">
+                                <i class="fa-solid fa-chalkboard-user mr-3" aria-hidden="true"></i>Docentes
+                            </a>
+                        </div>
+                        <div>
+                            <a href="{{ url_for('cliente') }}" class="list-group-item list-group-item-action bg-dark text-light">
+                                <i class="fa-solid fa-person-breastfeeding mr-3" aria-hidden="true"></i>Clientes
+                            </a>
+                        </div>
+                        <div>
+                            <a href="{{ url_for('asistenciadocentes') }}" class="list-group-item list-group-item-action bg-dark text-light">
+                                <i class="fa-solid fa-chalkboard-user mr-3" aria-hidden="true"></i>Asistencia Docentes
+                            </a>
+                        </div>
+
+                    {% elif session.personal_id == 1003 %}
+                        <!-- Menús para PersonalId 1003 -->
+                        <div>
+                            <a href="{{ url_for('alumnos') }}" class="list-group-item list-group-item-action bg-dark text-light">
+                                <i class="fa fa-users mr-3" aria-hidden="true"></i>Alumnos
+                            </a>
+                        </div>
+                        <div>
+                            <a href="{{ url_for('cliente') }}" class="list-group-item list-group-item-action bg-dark text-light">
+                                <i class="fa-solid fa-person-breastfeeding mr-3" aria-hidden="true"></i>Clientes
+                            </a>
+                        </div>
+
+                    {% else %}
+                        <!-- Si no hay un ID válido -->
+                        <span>No tienes acceso a ningún menú.</span>
+
+                    {% endif %}
+                </div> <!-- Fin de menuList -->
+            </div> <!-- Fin de sidebar-accordion -->
+        </div> <!-- Fin de sidebar -->
+
+        <!-- Contenido principal -->
+        <div class="content w-100">
+            <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+                <div class="container-xl">
+                    <a class="navbar-brand" href="#" id="escuela">Instituto Minerva Argani Tonel</a>
+                    <div class="ml-auto">
+                        <a href="/logout" title="Logout">
+                            <button type="button" class="btn btn-dark">Salir</button>
+                        </a>
+                    </div>
+                </div> <!-- Fin de container-xl -->
+            </nav> <!-- Fin de navbar -->
