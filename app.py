@@ -102,7 +102,7 @@ def update_personal(id):
     with conn.cursor() as cursor:
         sql = "UPDATE Personal SET PersonalNombre=%s, PersonalPrimerApellido=%s, PersonalSegundoApellido=%s, PersonalContrasena=%s, PersonalRolId=%s, PersonalFechaModificacion=%s, PersonalEstatus=%s, PersonalModifica=%s WHERE PersonalId=%s"
         
-        cursor.execute(sql, (data['PersonalNombre'], data.get('PersonalPrimerApellido'), data.get('PersonalSegundoApellido'), data['PersonalContrasena'], data.get('PersonalRolId'), fecha_modificacion, 'A', id, personal_id))
+        cursor.execute(sql, (data['PersonalNombre'], data.get('PersonalPrimerApellido'), data.get('PersonalSegundoApellido'), data['PersonalContrasena'], data.get('PersonalRolId'), fecha_modificacion, 'A', personal_id, id))
         conn.commit()
 
     return jsonify({'message': 'Personal actualizado'}), 200
