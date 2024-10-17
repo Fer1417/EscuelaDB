@@ -53,7 +53,7 @@ def create_personal():
         fecha_modificacion = datetime.now()
         estatus = 'A' 
         
-        sql = "INSERT INTO Personal (PersonalId, PersonalNombre, PersonalPrimerApellido, PersonalSegundoApellido, PersonalContrasena, PersonalRolId, PersonalFechaModificacion, PersonalEstatus, PersonalModifica) VALUES (%s, %s, %s, %s, %s, %s, %s, , %s)"
+        sql = "INSERT INTO Personal (PersonalId, PersonalNombre, PersonalPrimerApellido, PersonalSegundoApellido, PersonalContrasena, PersonalRolId, PersonalFechaModificacion, PersonalEstatus, PersonalModifica) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s)"
         
         cursor.execute(sql, (new_id, data['PersonalNombre'], data['PersonalPrimerApellido'], data['PersonalSegundoApellido'], data['PersonalContrasena'], data['PersonalRolId'], fecha_modificacion, estatus, personal_id))
         conn.commit()
